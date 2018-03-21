@@ -1,0 +1,154 @@
+{
+  "name": "aiassistant-component",
+  "version": "1.23.0",
+  "description": "Widget for Showing React and Redux",
+  "main": "dist",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "ava",
+    "dev": "NODE_ENV=development styleguidist server --colors",
+    "clean": "rimraf dist",
+    "build": "run-s clean babel",
+    "lint": "eslint src test --ext .js,.jsx",
+    "babel": "babel src -d dist --copy-files --ignore .md,.test.js",
+    "watch": "npm run babel -- --watch",
+    "validate": "run-p lint coverage",
+    "prepush": "npm run validate",
+    "coverage": "nyc --report-dir reports/coverage --reporter=html --reporter=text ava",
+    "format": "prettier --write '{e2e-test,src}/**/*.{js,jsx}'",
+    "precommit": "lint-staged",
+    "commit": "run-p git:add git:commit",
+    "git:add": "git add .",
+    "git:commit": "git-cz",
+    "commitmsg": "commitlint -e $GIT_PARAMS"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "amelia",
+    "ml",
+    "machine",
+    "learning",
+    "ai"
+  ],
+  "author": "David Tatti <david.tatti@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidTatti/aiassistant/issues"
+  },
+  "homepage": "https://github.com/DavidTatti/aiassistant#readme",
+  "ava": {
+    "require": [
+      "babel-register",
+      "babel-polyfill",
+      "./test/helpers/setup-browser-env.js"
+    ],
+    "babel": "inherit"
+  },
+  "nyc": {
+    "statements": 45,
+    "branches": 35,
+    "functions": 40,
+    "lines": 45,
+    "include": [
+      "src/*"
+    ],
+    "exclude": [
+      "**/index.js"
+    ],
+    "all": true,
+    "extension": [
+      ".js",
+      ".jsx"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary"
+    ]
+  },
+  "dependencies": {
+    "@babel/preset-env": "7.0.0-beta.42",
+    "@webpack-blocks/webpack2": "0.4.0",
+    "babel-loader": "^7.1.4",
+    "classnames": "^2.2.5",
+    "compression": "^1.7.2",
+    "lodash": "^4.17.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-intl": "^2.2.3",
+    "react-jss": "^7.0.2",
+    "react-redux": "^5.0.7",
+    "react-textarea-autosize": "^5.1.0",
+    "recompose": "^0.25.0",
+    "redux": "^3.7.2",
+    "rsg-components": "3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0-beta.42",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.42",
+    "@commitlint/cli": "4.3.0",
+    "@commitlint/config-angular": "4.3.0",
+    "@webpack-blocks/babel6": "0.4.1",
+    "@webpack-blocks/dev-server2": "^0.4.0",
+    "api-ai-javascript": "2.0.0-beta.21",
+    "ava": "^0.22.0",
+    "ava-spec": "^1.1.0",
+    "babel-cli": "6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.1",
+    "babel-plugin-transform-class-properties": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "browser-env": "^3.2.1",
+    "commitizen": "2.9.6",
+    "cross-env": "^5.0.5",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-15": "^1.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-prettier": "^2.7.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "express-http-proxy": "^0.11.0",
+    "html-webpack-plugin": "github:webpack-contrib/html-webpack-plugin",
+    "husky": "^0.14.3",
+    "intl": "^1.2.5",
+    "lint-staged": "^5.0.0",
+    "mkdirp": "^0.5.1",
+    "npm-run-all": "^4.1.1",
+    "nyc": "^11.2.1",
+    "prettier": "^1.8.2",
+    "react-dom": "16.2.0",
+    "react-hot-loader": "^1.3.1",
+    "react-styleguidist": "^6.2.7",
+    "react-test-renderer": "^15.0.0",
+    "redux-devtools": "^3.4.1",
+    "redux-devtools-dock-monitor": "^1.1.3",
+    "redux-devtools-log-monitor": "^1.4.0",
+    "redux-mock-store": "^1.5.1",
+    "redux-thunk": "^2.2.0",
+    "rimraf": "^2.6.2",
+    "sinon": "^2.1.0",
+    "tap-xunit": "^1.7.0",
+    "tapable": "1.0.0-beta.5",
+    "webpack-hot-middleware": "^2.21.2",
+    "yarn": "^1.5.1"
+  }
+}

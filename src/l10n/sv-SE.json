@@ -1,0 +1,8 @@
+{
+  "HEADER.NAME": "AIAssistant",
+  "INTERACTION.MESSAGE": "Meddelande...",
+  "GREETING.HEADER": "Hej!",
+  "GREETING.MESSAGE": "Jag är här för att hjälpa dig med livet.",
+  "GREETING.QUESTION": "Vad vill du ha hjälp med i dag?",
+  "DROPDOWN.RESET": "Reset"
+}
